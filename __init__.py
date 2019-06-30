@@ -14,6 +14,8 @@ import bpy
 from bpy.types import Panel
 # from bpy.props import StringProperty, BoolProperty, EnumProperty
 
+from .CurveTools.curve_tools_pt import *
+
 class VIEW3D_PT_NexusToolsMainPanel(Panel):
 	"""Main panel nexus tools"""
 	bl_label = "Nexus Tools"
@@ -24,15 +26,11 @@ class VIEW3D_PT_NexusToolsMainPanel(Panel):
 	bl_options = {"DEFAULT_CLOSED"}
 
 	def draw(self, context):
-		layout = self.layout
-
-		col = layout.column()
-		col.label(text="Test text")
-
-
+		...
 
 classes = (
 	VIEW3D_PT_NexusToolsMainPanel,
+	VIEW3D_PT_CurveTools
 )
 
 def register():
