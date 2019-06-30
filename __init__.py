@@ -3,7 +3,7 @@ bl_info = {
 	"author" : "Nexus Studio",
 	"version" : (0, 0, 1),
 	"blender" : (2, 80, 0),
-	"location" : "N menu",
+	"location" : "View 3D > N menu > Nexus > Nexus Tools",
 	"description" : "",
 	"warning" : "",
 	"category" : "User"
