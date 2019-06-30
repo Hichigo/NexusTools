@@ -14,6 +14,21 @@ class VIEW3D_PT_CurveTools(Panel):
 
 	def draw(self, context):
 		layout = self.layout
+		scene = context.scene
+		curve_tools = scene.curve_tools
 
+		
 		col = layout.column()
-		col.label(text="Curve tools panel")
+		col.prop_search(curve_tools, "target_curve", scene, "objects")
+		box = col.box()
+		box.label(text="Settings:")
+		box.prop(curve_tools, "follow_curve")
+		box.prop(curve_tools, "curve_radius")
+		
+		row = box.row()
+		row.label(text="Forward:")
+		row.prop(curve_tools, "forward_axis", expand=True)
+		
+		row = box.row()
+		row.label(text="Up:")
+		row.prop(curve_tools, "up_axis", expand=True)
