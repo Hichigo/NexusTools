@@ -12,9 +12,11 @@ bl_info = {
 import bpy
 
 from bpy.types import Panel
-# from bpy.props import StringProperty, BoolProperty, EnumProperty
+from bpy.props import CollectionProperty
 
 from .CurveTools.curve_tools_pt import *
+
+from .CurveTools.curve_tools_properties import *
 
 class VIEW3D_PT_NexusToolsMainPanel(Panel):
 	"""Main panel nexus tools"""
@@ -30,7 +32,8 @@ class VIEW3D_PT_NexusToolsMainPanel(Panel):
 
 classes = (
 	VIEW3D_PT_NexusToolsMainPanel,
-	VIEW3D_PT_CurveTools
+	VIEW3D_PT_CurveTools,
+	CurveTools_SCENE_Properties
 )
 
 def register():
@@ -38,10 +41,14 @@ def register():
 	for cls in classes:
 		register_class(cls)
 
+	bpy.types.Scene.curve_tools = bpy.props.PointerProperty(type=CurveTools_SCENE_Properties)
+
 def unregister():
 	from bpy.utils import unregister_class
 	for cls in reversed(classes):
 		unregister_class(cls)
+	
+	del bpy.types.Scene.curve_tools
 
 if __name__ == "__main__":
 	register()
