@@ -1,10 +1,17 @@
 import bpy
 from bpy.types import PropertyGroup
-from bpy.props import BoolProperty, EnumProperty, PointerProperty
+from bpy.props import BoolProperty, IntProperty, EnumProperty, PointerProperty
 
 from .curve_tools_utils import filter_on_curve_type
 
 class CurveTools_SCENE_Properties(PropertyGroup):
+
+	num_copy: IntProperty(
+		name="Copy number",
+		description="Number copy active object",
+		min=2,
+		default=5
+	)
 
 	target_curve: PointerProperty(
 		name="Target curve",
