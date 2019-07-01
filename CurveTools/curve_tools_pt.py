@@ -17,11 +17,19 @@ class VIEW3D_PT_CurveTools(Panel):
 		scene = context.scene
 		curve_tools = scene.curve_tools
 
-		
+		col = layout.column()
+		col.operator("view3d.selected_to_curve", text="Selected to curve", icon="CON_FOLLOWPATH")
+
+		col = layout.column()
+		col.operator("view3d.copy_to_curve", text="Copy to curve", icon="MOD_ARRAY")
+
 		col = layout.column()
 		col.prop_search(curve_tools, "target_curve", scene, "objects")
 		box = col.box()
 		box.label(text="Settings:")
+
+		box.prop(curve_tools, "num_copy")
+
 		box.prop(curve_tools, "follow_curve")
 		box.prop(curve_tools, "curve_radius")
 		
