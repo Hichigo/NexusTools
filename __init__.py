@@ -23,8 +23,8 @@ class VIEW3D_PT_NexusToolsMainPanel(Panel):
 	"""Main panel nexus tools"""
 	bl_label = "Nexus Tools"
 	bl_idname = "VIEW3D_PT_NexusToolsMainPanel"
-	bl_space_type = 'VIEW_3D'
-	bl_region_type = 'UI'
+	bl_space_type = "VIEW_3D"
+	bl_region_type = "UI"
 	bl_category = "Nexus"
 	bl_options = {"DEFAULT_CLOSED"}
 
@@ -32,6 +32,8 @@ class VIEW3D_PT_NexusToolsMainPanel(Panel):
 		...
 
 classes = (
+	VIEW3D_OT_SelectedToCurve,
+	VIEW3D_OT_CopyToCurve,
 	VIEW3D_PT_NexusToolsMainPanel,
 	VIEW3D_PT_CurveTools,
 	CurveTools_SCENE_Properties
