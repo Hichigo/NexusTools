@@ -25,10 +25,11 @@ class VIEW3D_PT_CurveTools(Panel):
 
 		col = layout.column()
 		col.prop_search(curve_tools, "target_curve", scene, "objects")
-		box = col.box()
-		box.label(text="Settings:")
 
-		box.prop(curve_tools, "num_copy")
+		col.prop(curve_tools, "num_copy")
+
+		box = col.box()
+		box.label(text="Curve Settings:")
 
 		box.prop(curve_tools, "follow_curve")
 		box.prop(curve_tools, "curve_radius")
