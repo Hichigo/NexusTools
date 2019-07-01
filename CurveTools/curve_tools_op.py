@@ -8,17 +8,21 @@ class VIEW3D_OT_SelectedToCurve(Operator):
 	bl_idname = "view3d.selected_to_curve"
 	bl_label = "Selected To Curve"
 
-
 	def invoke(self, context, event):
+		curve_tools = context.scene.curve_tools
+		target_curve = curve_tools.target_curve
 		selected_objects = context.selected_objects
 		num_objects = len(selected_objects)
+
+		if target_curve == None:
+			self.report({"ERROR"}, "Please set Target curve!")
+			return {"FINISHED"}
 
 		if num_objects == 0:
 			self.report({"ERROR"}, "No selected objects!")
 			return {"FINISHED"}
 		
 		return self.execute(context)
-
 
 	def execute(self, context):
 		curve_tools = context.scene.curve_tools
