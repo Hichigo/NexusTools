@@ -15,6 +15,7 @@ from bpy.types import Panel
 from bpy.props import CollectionProperty
 
 from .CurveTools.curve_tools_pt import *
+from .CurveTools.curve_tools_op import *
 
 from .CurveTools.curve_tools_properties import *
 
